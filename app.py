@@ -39,7 +39,7 @@ def convert_state_abbr_to_code(state_abbr):
     try:
         return usa_states.index(state_abbr.upper())
     except ValueError:
-        print("⚠️ Invalid state abbrev received — defaulting to CO")
+        print("Invalid state abbrev received — defaulting to CO")
         return 5
 
 @app.route("/predict", methods=["POST"])
@@ -77,9 +77,9 @@ def predict():
         prediction = 1 if proba > 0.45 else 0
 
         msg = (
-            f"✅ Your loan for ${loan_amount:,.0f} has been Approved"
+            f"Your loan for ${loan_amount:,.0f} has been Approved"
             if prediction == 1 else
-            f"❌ Sorry, your loan for ${loan_amount:,.0f} has been Rejected"
+            f"Sorry, your loan for ${loan_amount:,.0f} has been Rejected"
         )
 
         return jsonify({
@@ -92,7 +92,7 @@ def predict():
 
 @app.route("/", methods=["GET"])
 def health():
-    return "🚀 Model B API is alive and ready to approve loans!"
+    return "Model B API is alive and ready to approve loans!"
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8080)
