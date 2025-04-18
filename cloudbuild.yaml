@@ -1,38 +1,90 @@
+# steps:
+#   # Step to build the Docker image
+#   - name: 'gcr.io/cloud-builders/docker'
+#     dir: 'API'
+#     args: ['build', '-t', 'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor', '.']
+
+#   # Step to push the Docker image to Google Container Registry
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['push', 'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor']
+
+#   # Step to deploy to Cloud Run
+#   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#     entrypoint: gcloud
+#     args:
+#       - 'run'
+#       - 'deploy'
+#       - 'loan-predictor'
+#       - '--image'
+#       - 'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor'
+#       - '--region'
+#       - 'us-central1'
+#       - '--platform'
+#       - 'managed'
+#       - '--allow-unauthenticated'
+
+#   # Add your new step that just prints 'Hello world!'
+#   - name: 'bash'
+#     args: ['-c', 'echo Hello world!']
+
+# images:
+#   - 'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor'
+
+# logsBucket: 'gs://loan-pred-bucket'
+
+# serviceAccount: 'loan-pred-account@genial-post-457002-n2.iam.gserviceaccount.com'
+
+# options:
+#   logging: GCS_ONLY
+
 steps:
-  # Step to build the Docker image
+  # 🔨 Step 1: Build Docker Image (from ./API directory)
   - name: 'gcr.io/cloud-builders/docker'
     dir: 'API'
-    args: ['build', '-t', 'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor', '.']
-
-  # Step to push the Docker image to Google Container Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor']
-
-  # Step to deploy to Cloud Run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
     args:
-      - 'run'
-      - 'deploy'
-      - 'loan-predictor'
-      - '--image'
-      - 'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor'
-      - '--region'
-      - 'us-central1'
-      - '--platform'
-      - 'managed'
-      - '--allow-unauthenticated'
+      [
+        'build',
+        '-t',
+        'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor',
+        '.'
+      ]
 
-  # Add your new step that just prints 'Hello world!'
-  - name: 'bash'
+  # 🚀 Step 2: Push Docker Image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'push',
+        'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor'
+      ]
+
+  # ☁️ Step 3: Deploy to Google Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      [
+        'run',
+        'deploy',
+        'loan-predictor',
+        '--image',
+        'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor',
+        '--region',
+        'us-central1',
+        '--platform',
+        'managed',
+        '--allow-unauthenticated',
+        '--service-account',
+        'loan-pred-account@genial-post-457002-n2.iam.gserviceaccount.com'
+      ]
+
+  # ✅ Extra: Hello World
+  - name: 'ubuntu'
+    entrypoint: 'bash'
     args: ['-c', 'echo Hello world!']
 
 images:
   - 'us-central1-docker.pkg.dev/genial-post-457002-n2/loan-predictor-app/loan-predictor'
 
 logsBucket: 'gs://loan-pred-bucket'
-
-serviceAccount: 'loan-pred-account@genial-post-457002-n2.iam.gserviceaccount.com'
 
 options:
   logging: GCS_ONLY
