@@ -1,30 +1,30 @@
 
-# 🏦 Loan Prediction App – Loan Sphere
+# Loan Prediction App – Loan Sphere
 
 Loan Sphere is an intelligent loan analysis and approval prediction platform designed to help users make informed financial decisions. This project offers real-time loan approval checks, historical mortgage analysis, and future rate forecasting.
 
 ---
 
-## 🚀 Features
+## Features
 
-- ✅ **Loan Approval Prediction**  
+- **Loan Approval Prediction**  
   Predicts if a user's loan is likely to be approved based on their financial input and historical data.
 
-- 📈 **Mortgage Trend Modeling**  
+- **Mortgage Trend Modeling**  
   Shows mortgage rate trends using historical HMDA data.
 
-- 🔮 **Future Rate Prediction**  
+- **Future Rate Prediction**  
   Forecasts mortgage interest rates using time series models.
 
-- 🌐 **Modern UI + Backend API**  
+- **Modern UI + Backend API**  
   Frontend built with a responsive, user-friendly interface and connected to a Flask-based backend API.
 
-- 📦 **Dockerized & Deployed on Google Cloud Run**  
+- **Dockerized & Deployed on Google Cloud Run**  
   CI/CD integrated with Google Artifact Registry and Cloud Run for scalable deployment.
 
 ---
 
-## 🧠 ML Model – Loan Approval
+## ML Model – Loan Approval
 
 - **Model Type**: Gradient-Boosted Decision Trees (XGBoost)
 - **Trained on**:  
@@ -39,7 +39,7 @@ Loan Sphere is an intelligent loan analysis and approval prediction platform des
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React.js + Vercel Hosting  
 - **Backend**: Flask API  
@@ -49,7 +49,7 @@ Loan Sphere is an intelligent loan analysis and approval prediction platform des
 
 ---
 
-## 🧪 How to Run Locally
+## How to Run Locally
 
 ```bash
 # 1. Clone the repository
@@ -69,7 +69,7 @@ python app.py
 
 ---
 
-## 🐳 Docker Build (Optional)
+## Docker Build (Optional)
 
 ```bash
 # Build Docker image
@@ -81,7 +81,7 @@ docker run -p 8080:8080 loan-predictor-app
 
 ---
 
-## 🌍 API Endpoint
+## API Endpoint
 
 ```
 POST /predict
@@ -100,7 +100,7 @@ Content-Type: application/json
 
 ---
 
-## 📚 Credits
+## Credits
 
 Created by graduate students at the **University of Colorado Boulder** as part of the Loan Sphere initiative:
 - **Archit Shukla** – Loan Approval Model, API, Deployment
@@ -108,6 +108,6 @@ Created by graduate students at the **University of Colorado Boulder** as part o
 
 ---
 
-## 📄 License
+## License
 
 MIT License – Free to use and modify.
