@@ -1,7 +1,7 @@
 
 # 🏦 Loan Prediction App – Loan Sphere
 
-Loan Sphere is an intelligent loan analysis and approval prediction platform designed to help users make informed financial decisions. Built by graduate students at the University of Colorado Boulder, this project offers real-time loan approval checks, historical mortgage analysis, and future rate forecasting.
+Loan Sphere is an intelligent loan analysis and approval prediction platform designed to help users make informed financial decisions. This project offers real-time loan approval checks, historical mortgage analysis, and future rate forecasting.
 
 ---
 
